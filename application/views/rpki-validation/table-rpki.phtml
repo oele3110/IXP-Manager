@@ -1,0 +1,36 @@
+<table class="table" id="list-table-{$type}">
+    <thead>
+        <th>Prefix</th>
+        <th>Origin ASN</th>
+        <th>First Seen</th>
+        <th>Validity</th>
+        {if $type eq 'invalid'}
+            <th>Info<th>
+        {/if}
+        <th>Customer</th>
+    </thead>
+    <tbody>
+        {foreach $aggRpki.$type as $r}
+            <tr>
+                <td>{$r.prefix}</td>
+                <td>{$r.rs_origin}</td>
+                <td>{$r.timestamp->format( 'Y-m-d H:i:s' )}</td>
+                <td>{if $r.validity eq 'U'}Unknown
+                    {else if $r.validity eq 'IV'}Invalid
+                    {else if $r.validity eq 'V'}Valid
+                    {/if}
+                </td>
+                {if $type eq 'invalid'}
+                    <td>{if $r.info eq 'IP'}Fixed length exceeded
+                        {else if $r.info eq 'IQ'}Length range exceeded
+                        {else if $r.info eq 'IA'}AS does not match
+                        {else if $r.info eq 'IB'}Prefix too specific and AS does not match
+                        {/if}
+                    </td>
+                {/if}
+                <td>{$r.customer}</td>
+            </tr>
+        {/foreach}
+    </tbody>
+</table>
+

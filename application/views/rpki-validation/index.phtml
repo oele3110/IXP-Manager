@@ -1,0 +1,66 @@
+{tmplinclude file="header.phtml"}
+
+<style>
+    body{ overflow-y: scroll; }
+</style>
+
+<ul class="breadcrumb">
+    <li class="pull-left"  style="margin-top: -6px;">
+        <div class="btn-toolbar" style="display: inline;">
+            {tmplinclude file='rpki-validation/list-filter.phtml'}
+        </div>
+    </li>
+</ul>
+
+<div class="page-content">
+
+<div class="row-fluid">
+    <div class="span12 tabbable">
+
+    	<ul class="nav nav-tabs" id='rpki-type-tabs'>
+
+			<li class="active">
+			    <a href="#unknown" data-toggle="tab">Unknown ({if $summaryRpki.unknown > 0}
+			    												{$summaryRpki.unknown}
+			    												{else}0{/if})</a>
+			</li>
+
+			<li>
+			    <a href="#invalid" data-toggle="tab">Invalid ({if $summaryRpki.invalid > 0}
+			    												{$summaryRpki.invalid}
+			    												{else}0{/if})</a>
+			</li>
+
+			<li>
+			    <a href="#valid" data-toggle="tab">Valid ({if $summaryRpki.valid > 0}
+			    												{$summaryRpki.valid}
+			    												{else}0{/if})</a>
+			</li>
+
+		</ul>
+
+        <div class="tab-content">
+
+	        <div class="tab-pane active" id="unknown">
+	            {$type = "unknown"}
+	        	{tmplinclude file="rpki-validation/table-rpki.phtml"}
+	        </div>
+
+	        <div class="tab-pane" id="invalid">
+	            {$type = "invalid"}
+	            {tmplinclude file="rpki-validation/table-rpki.phtml"}
+	        </div>
+
+	        <div class="tab-pane" id="valid">
+	            {$type = "valid"}
+	            {tmplinclude file="rpki-validation/table-rpki.phtml"}
+	        </div>
+
+        </div>
+    </div>
+</div>
+
+</div>
+
+<script>{tmplinclude file="rpki-validation/js/list.js"}</script>
+{tmplinclude file="footer.phtml"}

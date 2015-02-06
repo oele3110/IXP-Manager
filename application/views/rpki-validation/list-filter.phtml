@@ -1,0 +1,38 @@
+<div class="btn-group">
+    <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" id="selection-io">
+        <span id="selection-io-text">
+        Filtered for {if $selectionIO eq all}My Router &lt;-&gt; Route Server{/if}{if $selectionIO eq left}My Router &lt;- Route Server{/if}{if $selectionIO eq right}My Router -&gt; Route Server{/if}
+        </span>
+        <span class="caret"></span>
+    </a>
+    <ul id="selection-io-ul" class="dropdown-menu pull-left">
+        {if $selectionIO eq all}
+            <li> <a id="left" href="{genUrl controller=$controller action='index' selectionIO=left selection=$selection}">My Router &lt;- Route Server</a> </li>
+            <li> <a id="right" href="{genUrl controller=$controller action='index' selectionIO=right selection=$selection}">My Router -&gt; Route Server</a> </li>   
+        {/if}
+        {if $selectionIO eq left}
+            <li> <a id="all" href="{genUrl controller=$controller action='index' selection=$selection selectionIO=all}">My Router &lt;-&gt; Route Server</a> </li>
+            <li> <a id="right" href="{genUrl controller=$controller action='index' selectionIO=right selection=$selection}">My Router -&gt; Route Server</a> </li>            
+        {/if}
+        {if $selectionIO eq right}
+            <li> <a id="all" href="{genUrl controller=$controller action='index' selection=$selection selectionIO=all}">My Router &lt;-&gt; Route Server</a> </li>
+            <li> <a id="left" href="{genUrl controller=$controller action='index' selectionIO=left selection=$selection}">My Router &lt;- Route Server</a> </li>
+        {/if}
+        </ul>
+</div>
+
+
+<div class="btn-group">
+    <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" id="selection-dd">
+        <span id="selection-dd-text">{if $selection}Filtered for {if $selection eq allPr}all Prefixes{else}Prefixes relating to my ASN{/if}{/if}</span>
+        <span class="caret"></span>
+    </a>
+    <ul id="selection-dd-ul" class="dropdown-menu pull-left">
+        {if $selection neq allPr}
+            <li> <a id="allPr" href="{genUrl controller=$controller action='index' selection=allPr selectionIO=$selectionIO}">All Prefixes</a> </li>
+        {/if}
+        {if $selection neq NAllPr}
+            <li> <a id="NAllPr" href="{genUrl controller=$controller action='index' selection=NAllPr selectionIO=$selectionIO}">Prefixes relating to my ASN</a> </li>
+        {/if}
+        </ul>
+</div>

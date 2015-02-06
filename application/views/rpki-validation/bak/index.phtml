@@ -1,0 +1,35 @@
+{tmplinclude file="header.phtml" pageTitle="IXP Manager :: RPKI Validation"}
+
+<style>
+    body{ overflow-y: scroll; }
+</style>
+
+<div class="page-content">
+
+{OSS_Message}
+
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a href="#unknown" data-toggle="tab">Unknown</a></li>
+        <li><a href="#invalid" data-toggle="tab">Invalid</a></li>
+        <li><a href="#valid" data-toggle="tab">Valid</a></li>
+</ul>
+
+<div class="tab-content" style="min-height: 400px;">
+
+    <div class="tab-pane active" id="unknown">
+        {tmplinclude file="rpki-validation/index-unknown.phtml"}
+    </div>
+
+    <div class="tab-pane" id="invalid">
+        {tmplinclude file="rpki-validation/index-invalid.phtml"}
+    </div>
+
+    <div class="tab-pane" id="valid">
+        {tmplinclude file="rpki-validation/index-valid.phtml"}
+    </div>
+
+</div>
+    
+<script>{tmplinclude file="rpki-validation/js/index.js"}</script>
+{tmplinclude file="footer.phtml"}
