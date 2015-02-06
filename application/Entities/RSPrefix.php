@@ -65,6 +65,10 @@ class RSPrefix
      */
     protected $Customer;
 
+    /**
+     * @var integer
+     */
+    protected $custid;
 
     /**
      * Set timestamp
@@ -192,6 +196,16 @@ class RSPrefix
     }
 
     /**
+     * Get custid
+     *
+     * @return integer
+     */
+    public function getCustid()
+    {
+        return $this->custid;
+    }
+
+    /**
      * Set Customer
      *
      * @param \Entities\Customer $customer
@@ -212,5 +226,63 @@ class RSPrefix
     public function getCustomer()
     {
         return $this->Customer;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $RpkiValidation;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->RpkiValidation = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add RpkiValidation
+     *
+     * @param \Entities\RpkiValidation $rpkiValidation
+     * @return RSPrefix
+     */
+    public function addRpkiValidation(\Entities\RpkiValidation $rpkiValidation)
+    {
+        $this->RpkiValidation[] = $rpkiValidation;
+    
+        return $this;
+    }
+
+    /**
+     * Remove RpkiValidation
+     *
+     * @param \Entities\RpkiValidation $rpkiValidation
+     */
+    public function removeRpkiValidation(\Entities\RpkiValidation $rpkiValidation)
+    {
+        $this->RpkiValidation->removeElement($rpkiValidation);
+    }
+
+    /**
+     * Get RpkiValidation
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRpkiValidation()
+    {
+        return $this->RpkiValidation;
+    }
+
+    /**
+     * Set custid
+     *
+     * @param integer $custid
+     * @return RSPrefix
+     */
+    public function setCustid($custid)
+    {
+        $this->custid = $custid;
+    
+        return $this;
     }
 }
