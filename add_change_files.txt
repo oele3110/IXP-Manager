@@ -1,0 +1,32 @@
+## IXP Manager ##
+
+this file lists files that were added/changed
+
+# added files #
+
+ixp/application/controller/RpkiValidationController.php
+
+ixp/application/Entities/RpkiValidation.php
+ixp/application/Entities/RpkiRoa.php
+
+ixp/application/Repositories/RpkiValidation.php
+ixp/application/Repositories/RpkiRoa.php
+
+ixp/application/views/rpki-validation/
+
+ixp/application/Proxies/__CG__EntitiesRpkiValidation.php
+
+ixp/doctrine/schema/Entities.RpkiValidation.dcm.xml
+ixp/doctrine/schema/Entities.RpkiRoa.dcm.xml
+
+
+# changed files #
+
+ixp/application/configs/application.ini					l. 285
+
+ixp/application/Entities/RSPrefix.php					l. 71, l. 203
+
+ixp/application/views/header.phtml						l. 60++
+
+ixp/doctrine/schema/Entities.RSPrefix.dcm.xml
+
