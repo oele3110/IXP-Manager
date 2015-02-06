@@ -15,6 +15,7 @@ ixp/application/Repositories/RpkiRoa.php
 ixp/application/views/rpki-validation/
 
 ixp/application/Proxies/__CG__EntitiesRpkiValidation.php
+ixp/application/Proxies/__CG__EntitiesRpkiRoa.php
 
 ixp/doctrine/schema/Entities.RpkiValidation.dcm.xml
 ixp/doctrine/schema/Entities.RpkiRoa.dcm.xml
