@@ -57,6 +57,9 @@
                                     {if !isset( $options['frontend']['disabled']['peering-matrix'] ) or !$options['frontend']['disabled']['peering-matrix'] }
                                         <li><a href="{genUrl controller="peering-matrix"}">Public Peering Matrix</a></li>
                                     {/if}
+                                    {if not isset( $options['frontend']['disabled']['rpki-validation'] ) or not $options['frontend']['disabled']['rpki-validation'] }
+                                        <li><a href="{genUrl controller="rpki-validation" action='index' selectionIO=all selection=allPr}">RPKI Validation</a></li>
+                                    {/if}
                                 </ul>
                             </li>
 
