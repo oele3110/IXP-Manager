@@ -9,10 +9,12 @@
     <field name="protocol" type="integer" nullable="true"/>
     <field name="irrdb" type="integer" nullable="true"/>
     <field name="rs_origin" type="integer" nullable="true"/>
+    <field name="custid" type="integer" nullable="true"/>
     <many-to-one field="Customer" target-entity="Entities\Customer" inversed-by="RSPrefixes">
       <join-columns>
         <join-column name="custid" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
+    <one-to-many field="RpkiValidation" target-entity="Entities\RpkiValidation" mapped-by="RSPrefix"/>
   </entity>
 </doctrine-mapping>

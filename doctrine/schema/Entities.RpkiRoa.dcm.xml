@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xsi="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Entities\RpkiRoa" repository-class="Repositories\RpkiRoa" table="rpki_roa" tableName="rpki_roa">
+
+  	<id name="rs_prefix_id" type="integer"/>
+    <field name="asn" type="integer" nullable="true"/>
+    <field name="prefix" type="string" length="64" nullable="true"/>
+    <field name="max" type="integer" nullable="true"/>
+    <field name="min" type="integer" nullable="true"/>
+    <one-to-many field="RpkiValidation" target-entity="Entities\RpkiValidation" mapped-by="RpkiRoa"/>
+  </entity>
+</doctrine-mapping>
